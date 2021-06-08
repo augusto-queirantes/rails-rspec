@@ -1,5 +1,6 @@
 development:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: rails_rspec_development
   pool: 5
@@ -8,8 +9,9 @@ development:
 
 test:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: rails_rspec_test
   pool: 5
-  username: rails_rspec
-  password: 123
+  username: <%= ENV.fetch('POSTGRES_USER') { 'rails_rspec' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { '123' } %>
