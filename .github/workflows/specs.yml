@@ -5,17 +5,17 @@ on: push
 jobs:
   specs:
     runs-on: ubuntu-latest
-    env:
-      POSTGRES_USER: rails_rspec
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: rails_rspec_test
 
     services:
       postgres:
         image: postgres:11
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         ports:
           - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v1
@@ -25,12 +25,13 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install libpq-dev
       - name: Install dependencies
-        run: bundle install
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
       - name: Database setup
         run: |
-          rake db:create
-          rake db:migrate
-        env:
-          RAILS_ENV: test
-      - name: Run linter
-        run: rspec
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+      - name: Run specs
+        run: bundle exec rspec
