@@ -1,24 +1,39 @@
-# README
+# Testing Rails applications with Rspec
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p align="left">
+  <a href="https://github.com/augusto-queirantes/rails-rspec/actions">
+    <img
+      alt="spec status"
+      src="https://github.com/augusto-queirantes/rails-rspec/workflows/Specs/badge.svg"
+    >
+  </a>
 
-Things you may want to cover:
+  <a href="https://github.com/augusto-queirantes/rails-rspec/actions">
+    <img
+      alt="linter status"
+      src="https://github.com/augusto-queirantes/rails-rspec/workflows/Linter/badge.svg"
+    >
+  </a>
+</p>
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Ruby v3.0.1
+- Rails v6.1.3
 
-* Configuration
+## Setup
 
-* Database creation
+```
+git clone git@github.com:augusto-queirantes/rails-rspec.git
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
-* Database initialization
+## Specs
 
-* How to run the test suite
+Run 'bundle exec rspec' to run all project specs
 
-* Services (job queues, cache servers, search engines, etc.)
+## Linting
 
-* Deployment instructions
-
-* ...
+Run 'bundle exec rubocop' to lint all files

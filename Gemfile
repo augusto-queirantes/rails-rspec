@@ -17,10 +17,9 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'pry-rails'
-
   # Console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
 
   # Specs
   gem 'capybara'
