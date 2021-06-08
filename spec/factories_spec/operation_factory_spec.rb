@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OperationFactory do
   let(:class_call) { described_class.for(operation_type) }
 

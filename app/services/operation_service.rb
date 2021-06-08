@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OperationService
   class << self
     def calculate(first_number, second_number, operation_type)

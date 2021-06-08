@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OperationsController < ApplicationController
   def create
     operation = OperationService.calculate(
@@ -7,7 +9,7 @@ class OperationsController < ApplicationController
     )
 
     render json: OperationSerializer.new(operation).serialize!
-  rescue => error
-    render json: { error: error.message }, status: :bad_request
+  rescue StandardError => e
+    render json: { error: e.message }, status: :bad_request
   end
 end

@@ -1,4 +1,6 @@
-require File.expand_path("../../config/environment", __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('../config/environment', __dir__)
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

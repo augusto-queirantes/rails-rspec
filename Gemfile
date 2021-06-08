@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -18,15 +20,19 @@ group :development, :test do
   gem 'pry-rails'
 
   # Console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # Specs
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'shoulda-matchers'
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+
+  # Linting
+  gem 'rubocop'
+  gem 'rubocop-rspec'
 end
 
 group :development do

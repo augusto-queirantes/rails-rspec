@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OperationFactory
   def self.for(operation_type)
     case operation_type

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OperationService do
   describe '#calculate' do
     let(:class_call) { described_class.calculate(first_number, second_number, operation_type) }
@@ -15,9 +17,9 @@ RSpec.describe OperationService do
         let(:operation_type) { 'plus' }
 
         it 'creates a new operation with expected data' do
-          expect {
+          expect do
             class_call
-          }.to change {
+          end.to change {
             Operation.where(
               first_number: first_number,
               second_number: second_number,
@@ -59,9 +61,9 @@ RSpec.describe OperationService do
         let(:operation_type) { 'minus' }
 
         it 'creates a new operation with expected data' do
-          expect {
+          expect do
             class_call
-          }.to change {
+          end.to change {
             Operation.where(
               first_number: first_number,
               second_number: second_number,
@@ -103,9 +105,9 @@ RSpec.describe OperationService do
         let(:error_message) { 'Validation failed: First number is not a number' }
 
         it 'raises error' do
-          expect {
+          expect do
             class_call
-          }.to raise_error(ActiveRecord::RecordInvalid, error_message)
+          end.to raise_error(ActiveRecord::RecordInvalid, error_message)
         end
       end
 
@@ -116,9 +118,9 @@ RSpec.describe OperationService do
         let(:error_message) { 'Validation failed: Second number is not a number' }
 
         it 'raises error' do
-          expect {
+          expect do
             class_call
-          }.to raise_error(ActiveRecord::RecordInvalid, error_message)
+          end.to raise_error(ActiveRecord::RecordInvalid, error_message)
         end
       end
 
@@ -129,9 +131,9 @@ RSpec.describe OperationService do
         let(:error_message) { "'wrong' is not a valid operation_type" }
 
         it 'raises error' do
-          expect {
+          expect do
             class_call
-          }.to raise_error(ArgumentError, error_message)
+          end.to raise_error(ArgumentError, error_message)
         end
       end
     end

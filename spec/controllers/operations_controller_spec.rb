@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OperationsController, type: :request do
   describe 'POST /operations' do
     let(:request) { post '/operations', params: params }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Minus do
   describe '#perform' do
     let(:class_call) { described_class.perform(operation) }

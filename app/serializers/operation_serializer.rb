@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OperationSerializer
   def initialize(operation)
     @operation = operation

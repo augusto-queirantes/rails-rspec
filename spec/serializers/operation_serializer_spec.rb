@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OperationSerializer do
   describe '.serialize!' do
     let(:class_call) { described_class.new(operation).serialize! }
