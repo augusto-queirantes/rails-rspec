@@ -10,6 +10,8 @@ abort('The Rails environment is running in production mode!') unless Rails.env.t
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
