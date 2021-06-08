@@ -15,11 +15,18 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'pry-rails'
+
   # Console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   # Specs
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 group :development do
@@ -27,12 +34,4 @@ group :development do
 
   # Speed up application
   gem 'spring'
-end
-
-group :test do
-  # Specs
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'factory_bot'
-  gem 'shoulda-matchers'
 end
