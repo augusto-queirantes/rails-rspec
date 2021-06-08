@@ -1,10 +1,14 @@
-name: Linter
+name: Specs
 
 on: push
 
 jobs:
-  tests:
+  specs:
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_USER: rails_rspec
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: rails_rspec_test
 
     services:
       postgres:
