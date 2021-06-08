@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_022722) do
     t.integer "first_number", null: false
     t.integer "second_number", null: false
     t.string "operation_type", null: false
+    t.integer "result"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
