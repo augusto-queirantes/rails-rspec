@@ -9,7 +9,7 @@ RSpec.describe OperationService do
       context 'when operation_type is plus' do
         before do
           allow(OperationFactory).to receive(:for).and_return(Plus)
-          allow(Plus).to receive(:perform)
+          allow(Plus).to receive(:perform).and_return(3)
         end
 
         let(:operation_type) { 'plus' }
@@ -39,12 +39,21 @@ RSpec.describe OperationService do
 
           class_call
         end
+
+        it 'returns expected data' do
+          created_operation = class_call
+
+          expect(created_operation.first_number).to eq(first_number)
+          expect(created_operation.second_number).to eq(second_number)
+          expect(created_operation.operation_type).to eq(operation_type)
+          expect(created_operation.result).to eq(3)
+        end
       end
 
       context 'when operation_type is minus' do
         before do
           allow(OperationFactory).to receive(:for).and_return(Minus)
-          allow(Minus).to receive(:perform)
+          allow(Minus).to receive(:perform).and_return(1)
         end
 
         let(:operation_type) { 'minus' }
@@ -73,6 +82,15 @@ RSpec.describe OperationService do
           expect(Minus).to receive(:perform).with(an_instance_of(Operation)).once
 
           class_call
+        end
+
+        it 'returns expected data' do
+          created_operation = class_call
+
+          expect(created_operation.first_number).to eq(first_number)
+          expect(created_operation.second_number).to eq(second_number)
+          expect(created_operation.operation_type).to eq(operation_type)
+          expect(created_operation.result).to eq(1)
         end
       end
     end

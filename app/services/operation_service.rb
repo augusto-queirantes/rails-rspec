@@ -4,7 +4,11 @@ class OperationService
       operation = create_operation!(first_number, second_number, operation_type)
       operation_class = OperationFactory.for(operation.operation_type)
 
-      operation_class.perform(operation)
+      result = operation_class.perform(operation)
+
+      update_operation_result(operation, result)
+
+      operation
     end
 
     private
@@ -15,6 +19,10 @@ class OperationService
         second_number: second_number,
         operation_type: operation_type
       )
+    end
+
+    def update_operation_result(operation, result)
+      operation.update!(result: result)
     end
   end
 end
