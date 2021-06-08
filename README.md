@@ -32,8 +32,8 @@ bundle exec rake db:migrate
 
 ## Specs
 
-Run 'bundle exec rspec' to run all project specs
+Run `bundle exec rspec` to run all project specs
 
 ## Linting
 
-Run 'bundle exec rubocop' to lint all files
+Run `bundle exec rubocop` to lint all files
