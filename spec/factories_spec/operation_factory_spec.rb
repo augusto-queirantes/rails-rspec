@@ -20,6 +20,14 @@ RSpec.describe OperationFactory do
           expect(class_call).to eq(Minus)
         end
       end
+
+      context 'when times' do
+        let(:operation_type) { 'times' }
+
+        it 'return Times' do
+          expect(class_call).to eq(Times)
+        end
+      end
     end
 
     describe 'when there is errors' do

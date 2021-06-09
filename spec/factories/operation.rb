@@ -12,5 +12,9 @@ FactoryBot.define do
     trait :minus do
       operation_type { 'minus' }
     end
+
+    trait :times do
+      operation_type { 'times' }
+    end
   end
 end

@@ -6,6 +6,7 @@ class Operation < ApplicationRecord
 
   enum operation_type: {
     plus: 'plus',
-    minus: 'minus'
+    minus: 'minus',
+    times: 'times'
   }
 end

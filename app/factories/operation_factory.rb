@@ -7,6 +7,8 @@ class OperationFactory
       ::Plus
     when 'minus'
       ::Minus
+    when 'times'
+      ::Times
     else
       raise "Unexpected operation_type #{operation_type}"
     end
