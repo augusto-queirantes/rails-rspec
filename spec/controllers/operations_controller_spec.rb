@@ -64,6 +64,36 @@ RSpec.describe OperationsController, type: :request do
           expect(response.body).to eq(expected_response)
         end
       end
+
+      context 'when times' do
+        let(:params) do
+          {
+            first_number: 1,
+            second_number: 2,
+            operation_type: 'times'
+          }
+        end
+        let(:expected_response) do
+          {
+            first_number: 1,
+            second_number: 2,
+            operation_type: 'times',
+            result: 2
+          }.to_json
+        end
+
+        it 'returns expected status' do
+          request
+
+          expect(response).to be_successful
+        end
+
+        it 'returns expected response' do
+          request
+
+          expect(response.body).to eq(expected_response)
+        end
+      end
     end
 
     context 'when params are not valid' do

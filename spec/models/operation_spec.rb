@@ -10,7 +10,8 @@ RSpec.describe Operation, type: :model do
         .to define_enum_for(:operation_type)
         .with_values(
           plus: 'plus',
-          minus: 'minus'
+          minus: 'minus',
+          times: 'times'
         ).backed_by_column_of_type(:string)
     end
   end
